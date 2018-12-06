@@ -1,0 +1,28 @@
+<div>Search :
+        <input type="text" [(ngModel)]="queryString">
+      </div>
+  <div class="col-sm-6 col-md-4 col-lg-3 product-item"
+    *ngFor="let prod of productItem |filterdata: queryString : 'name'" >
+     
+    <div class="thumbnail">
+      <img [src]="prod.imageUrl"
+        alt="{{prod.name}}">
+      <div class="caption">
+        <h3>{{prod.name}}</h3>
+        <p>
+          Price {{prod.price}} USD
+        </p>
+         <p>
+          Category- {{prod.category}}
+        </p>
+        <button class="btn btn-primary"         
+          id={{prod.id}}
+          (click)="onCartUpdated($event)"
+          >
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+  
+
